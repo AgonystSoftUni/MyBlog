@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'auth/register.php';
 include 'auth/login.php';
 include 'auth/userTemplate.php';

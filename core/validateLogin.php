@@ -1,28 +1,31 @@
 <?php
-session_start();
 include 'auth/login.php';
 include 'auth/userTemplate.php';
 
-if(isset($_POST['submit']))
-{
-    $login = new Login();
-    $user = $login->findUser($_POST['username']);
-    if(!empty($user))
+    if(isset($_POST['submit']))
     {
-        var_dump($user[0]);
-        if($user[0]['privilegies'] == 1)
+        $login = new Login();
+        $user = $login->findUser($_POST['username']);
+        if(!empty($user))
         {
-            $_SESSION['admin'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
+            if($user[0]['privilegies'] == 1)
+            {
+                $_SESSION['admin'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
+            }
+            else
+            {
+                $_SESSION['logged_in'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
+            }
+            //header("location: success.php");
+            
         }
-        else
+        else 
         {
-            $_SESSION['logged_in'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
+            echo sendNotification("error", "Wrong username or password");
         }
-        //header("location: success.php");
-        
     }
-    else 
+    else
     {
-        echo sendNotification("error", "Wrong username or password");
+        echo " Error ";
     }
-}
+

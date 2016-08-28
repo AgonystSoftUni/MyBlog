@@ -1,0 +1,88 @@
+body
+{
+    padding: 0px;
+    padding-top: 50px;
+}
+#contentWrapper
+{
+    width: 980px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+#contentWrapper main
+{
+    float:left;
+    width: 600px;
+}
+#contentWrapper aside
+{
+    float: right;
+    width: 300px;
+}
+#contentWrapper aside ul
+{
+    list-style: none;
+}
+#contentWrapper ul li
+{
+    display: block;
+    height: 30px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    transition: * 50ms linear;
+}
+#contentWrapper ul li a
+{
+    color: #333;
+    text-decoration: none;
+}
+#contentwrapper ul li:hover
+{
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+nav
+{
+    width: 100%;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    height: 50px;
+    background-color: #333;
+    z-index: 2;
+}
+nav ul
+{
+    list-style: none;
+}
+nav ul #right
+{
+    float: right;
+    margin-right: 50px;
+}
+nav ul li 
+{
+    display: inline-block;
+    margin-left: 50px;
+}
+nav ul li a 
+{
+    color: white;
+    text-decoration: none;
+}
+#contentWrapper #comments
+{
+    text-align: center;
+}
+#limitText 
+{
+    height: 153px;
+    overflow: hidden;
+}
+.center 
+{
+    text-align: center;
+}

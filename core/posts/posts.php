@@ -7,9 +7,9 @@ class Posts
     {
         $this->db = new Query();
     }
-    public function getLast($limit)
+    public function getLast($limit, $order)
     {
-        $data = $this->db->select("select * from posts left join users on posts.user_id = users.id ORDER BY posts.id DESC LIMIT $limit ");
+        $data = $this->db->select("select distinct posts.*,users.username from posts join users on posts.user_id = users.id $order LIMIT $limit");
         return $data;
     }
     public function newPost($title, $descr, $user_id, $category)

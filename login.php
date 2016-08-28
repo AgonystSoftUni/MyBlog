@@ -1,6 +1,8 @@
 <?php
 include "includes/header.php";
 include "core/validateLogin.php";
+if(!isset($_SESSION['logged_in']) && !isset($_SESSION['admin']))
+{
 ?>
     <form method="post" action="#">
     username <br/>
@@ -10,5 +12,10 @@ include "core/validateLogin.php";
     <input type="submit" name="submit" value="register">
     </form>
 <?php
+}
+else
+{
+    echo "<p class=\"center\"><h2>You're Logged in already</h2></p>";
+}
 include "includes/footer.php";
 ?>
