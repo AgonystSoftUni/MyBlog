@@ -11,7 +11,7 @@ include "core/validateRegister.php";
     <input type="password" name="password" required> <p/>
     repeat password <br/>
     <input type="password" name="repeatPassword" required> <p/>
-    <input type="submit" name="submit" value="register" required>
+    <input type="submit" name="submit" value="register" >
     </form>
 <?php
 

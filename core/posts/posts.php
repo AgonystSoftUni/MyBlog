@@ -9,7 +9,7 @@ class Posts
     }
     public function getLast($limit)
     {
-        $data = $this->db->select("select * from posts left join users on posts.user_id = users.id LIMIT $limit");
+        $data = $this->db->select("select * from posts left join users on posts.user_id = users.id ORDER BY posts.id DESC LIMIT $limit ");
         return $data;
     }
     public function newPost($title, $descr, $user_id, $category)
@@ -22,6 +22,7 @@ class Posts
     }
     public function getPostById($id)
     {
-        $data = $this->db->select("select * from posts where id=$id left join users on posts.user_id = user.id");
+        $data = $this->db->select("select * from posts left join users on posts.user_id = users.id where posts.id=$id");
+        return $data;
     }
 }

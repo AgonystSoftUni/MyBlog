@@ -9,8 +9,17 @@ if(isset($_POST['submit']))
     $user = $login->findUser($_POST['username']);
     if(!empty($user))
     {
-        $_SESSION['logged_in'] = new User($userp[0]['id'], $user[0]['username'], $user[0]['email']);
-        header("location: success.php");
+        var_dump($user[0]);
+        if($user[0]['privilegies'] == 1)
+        {
+            $_SESSION['admin'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
+        }
+        else
+        {
+            $_SESSION['logged_in'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
+        }
+        //header("location: success.php");
+        
     }
     else 
     {

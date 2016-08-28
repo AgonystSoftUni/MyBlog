@@ -10,7 +10,7 @@
 <ul>
 <li><a href="index.php">home</a></li>
 <li><a href="blog.php">blog</a></li>
-<?php if(!empty($_SESSION['login'])) { ?>
+<?php if(!isset($_SESSION['logged_in'])) { ?>
 <li><a href="login.php">login</a></li>
 <li><a href="register.php">register</a></li>
 <?php } else { ?>

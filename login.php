@@ -7,7 +7,7 @@ include "core/validateLogin.php";
     <input type="text" name="username" required><p/>
     email <br/>
     <input type="password" name="password" required> <p/>
-    <input type="submit" name="submit" value="register" required>
+    <input type="submit" name="submit" value="register">
     </form>
 <?php
 include "includes/footer.php";

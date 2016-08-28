@@ -13,6 +13,6 @@ class Login
     }
     public function findUser($username)
     {
-        return $this->db->select("select id,username,email from users where username='$this->username'");
+        return $this->db->select("select id,username,email,privilegies from users where username='$this->username'");
     }
 }
