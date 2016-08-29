@@ -1,11 +1,11 @@
 <?php
-include 'includes/db/query.php';
+
 class Posts
 {
-    private $db;
-    public function __construct()
+    public $db;
+    public function __construct($db)
     {
-        $this->db = new Query();
+        $this->db = $db;
     }
     public function getLast($limit, $order)
     {

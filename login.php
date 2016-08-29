@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 include "core/validateLogin.php";
-if(!isset($_SESSION['logged_in']) && !isset($_SESSION['admin']))
+if(!isset($_SESSION['logged_in']))
 {
 ?>
     <form method="post" action="#">
@@ -15,7 +15,7 @@ if(!isset($_SESSION['logged_in']) && !isset($_SESSION['admin']))
 }
 else
 {
-    echo "<p class=\"center\"><h2>You're Logged in already</h2></p>";
+    echo "<p class=\"center\"><h2>You're Logged in</h2></p>";
 }
 include "includes/footer.php";
 ?>

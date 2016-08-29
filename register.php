@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 include "core/validateRegister.php";
-if(!isset($_SESSION['logged_in']) && !isset($_SESSION['admin']))
+if(!isset($_SESSION['logged_in']))
 {
 ?>
     <form method="post" action="#">

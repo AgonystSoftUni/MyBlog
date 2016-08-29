@@ -8,16 +8,7 @@ include 'auth/userTemplate.php';
         $user = $login->findUser($_POST['username']);
         if(!empty($user))
         {
-            if($user[0]['privilegies'] == 1)
-            {
-                $_SESSION['admin'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
-            }
-            else
-            {
-                $_SESSION['logged_in'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email']);
-            }
-            //header("location: success.php");
-            
+                $_SESSION['logged_in'] = new User($user[0]['id'], $user[0]['username'], $user[0]['email'], $user[0]['privilegies']);
         }
         else 
         {

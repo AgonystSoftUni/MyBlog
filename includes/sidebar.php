@@ -1,6 +1,6 @@
 <aside>
 <?php
- if(isset($_SESSION['admin'])) 
+ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1) 
  { ?>
     <ul>
         <p class="center"><b>Admin Panel</b></p>

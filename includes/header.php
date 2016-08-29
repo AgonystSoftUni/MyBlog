@@ -1,8 +1,11 @@
 <?php
-    include 'core/services/notification.php';
-    include_once "core/posts/posts.php";
-    $posts = new Posts();
+    include 'core/auth/userTemplate.php';
     session_start();
+    include 'core/services/notification.php';
+    include_once "includes/db/query.php";
+    include_once "core/posts/posts.php";
+    $db = new Query();
+    $posts = new Posts($db);
 ?>
 <html>
 <head>
