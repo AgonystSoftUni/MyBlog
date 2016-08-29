@@ -2,6 +2,7 @@ body
 {
     padding: 0px;
     padding-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #contentWrapper
 {
@@ -24,6 +25,9 @@ body
 #contentWrapper aside ul
 {
     list-style: none;
+    width: 100%;
+    padding:0;
+    margin:0;
 }
 #contentWrapper ul li
 {
@@ -79,7 +83,7 @@ nav ul li a
 }
 #limitText 
 {
-    height: 153px;
+    height: 46px;
     overflow: hidden;
 }
 .center 
@@ -89,4 +93,30 @@ nav ul li a
 .comment
 {
     margin-left: 2em;
+}
+#contentWrapper #categories ul
+{
+    list-style: none;
+}
+#contentWrapper #categories ul li
+{
+    display: inline-block; 
+    width: 40%;
+    margin-left: 40px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    font-size: 19px;
+    box-shadow: 0px 1px 5px 1px #333;
+}
+#contentWrapper #categories ul li:hover
+{
+    box-shadow: 0px 1px 5px 2px #333;
+    background-color: white;
+    font-size: 19px;
+}
+#contentWrapper table
+{
+    width: 100%;
 }

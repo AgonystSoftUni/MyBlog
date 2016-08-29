@@ -25,4 +25,9 @@ class Posts
         $data = $this->db->select("select * from posts left join users on posts.user_id = users.id where posts.id=$id");
         return $data;
     }
+    public function getPostsByCategory($category)
+    {
+        $categories = $this->db->select("select * from posts where category='$category'");
+        return $categories;
+    }
 }

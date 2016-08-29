@@ -1,6 +1,5 @@
 <?php
 include 'auth/login.php';
-include 'auth/userTemplate.php';
 
     if(isset($_POST['submit']))
     {
@@ -14,9 +13,5 @@ include 'auth/userTemplate.php';
         {
             echo sendNotification("error", "Wrong username or password");
         }
-    }
-    else
-    {
-        echo " Error ";
     }
 

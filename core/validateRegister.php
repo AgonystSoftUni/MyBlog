@@ -1,7 +1,7 @@
 <?php
 include 'auth/register.php';
-include 'auth/login.php';
-include 'auth/userTemplate.php';
+include_once 'auth/login.php';
+include_once 'auth/userTemplate.php';
 
 if(isset($_POST['submit']))
 {
