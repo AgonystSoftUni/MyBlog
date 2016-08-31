@@ -7,6 +7,7 @@
     <ul>
         <li><a href="categories.php">Edit posts</a></li>
         <li><a href="newPost.php">Create New Post</a></li>
+        <li><a href="newCategory.php">Create New Category</a></li>
 
     </ul>
 <?php 

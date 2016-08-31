@@ -7,21 +7,22 @@ if(isset($_POST['comment']))
         $comments->insertCommentForPostId($_GET['id'], $_POST['commentText'], $_SESSION['logged_in']->username);
         header("location: post.php?id=".$_GET['id']);
 }
-$post = $posts->getPostById($_GET['id']);
-echo "<article><h1>" . $post[0]['title'] . "</h1>";
-if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1)
-{
-    echo "<a href=\"editPost.php?id=".$post[0]['id']."\">edit</a>";
-}
-echo "<br/>posted by " .$post[0]['username']." " .$post[0]['date']. "<p>" . $post[0]['descr'] . "</p></article>";
+    $post = $posts->getPostById($_GET['id']);
+    echo "<article><h1>" . $post[0]['title'] . "</h1>";
+    if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1)
+    {
+        echo "<a href=\"editPost.php?id=".$post[0]['id']."\">edit</a>";
+    }
+    echo "<br/>posted by " .$post[0]['username']." " .$post[0]['date']. "<p>" . $post[0]['descr'] . "</p></article>";
 ?>
-<hr><p id="comments"> Comments </p><hr>
-<?php if(isset($_SESSION['logged_in']))
+    <hr><p id="comments"> Comments </p><hr>
+<?php 
+if(isset($_SESSION['logged_in']))
 { 
     echo '<form action="#" method="post">
-<textarea name="commentText" required></textarea><p/>
-<input type="submit" name="comment" value="Submit Comment">
-</form><hr>';
+    <textarea name="commentText" required></textarea><p/>
+    <input type="submit" name="comment" value="Submit Comment">
+    </form><hr>';
 }
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1)
 {
