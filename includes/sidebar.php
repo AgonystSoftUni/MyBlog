@@ -5,10 +5,8 @@
         <p class="center"><b>Admin Panel</b></p>
         <hr>
     <ul>
-        <li><a href="Posts.php">Posts</a></li>
-        <li><a href="users.php">Users</a></li>
-        <li><a href="categories.php">Categories</a></li>
-        <li><a href="comments.php">Comments</a></li>
+        <li><a href="categories.php">Edit posts</a></li>
+        <li><a href="newPost.php">Create New Post</a></li>
 
     </ul>
 <?php 

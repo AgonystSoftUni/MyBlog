@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 include_once "core/posts/categories.php";
-$categories = new Categories();
+$categories = new Categories($db);
     if(!isset($_GET['category']))
     {
         echo "<div id=\"categories\"><ul>";
@@ -13,23 +13,31 @@ $categories = new Categories();
     }  
     else
     {
-        $postsByCategory = $posts->getPostsByCategory($_GET['category']);
-        echo "<table>";
-        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1)
+        if(isset($_POST['delete']))
         {
-            foreach($postsByCategory as $post)
-            {
-                echo "<tr><td><a href=\"post.php?id=".$post['id']."\">".$post['title']."</a></td><td><a href=\"editPost.php?id=".$post['id']."\">edit</a></td><td><a href=\"deletePost.php?id=".$post['id']."\">delete</a></td></tr>";
-            }
+            $posts->removePost($_POST['id']);
+            echo "<h1>successfully deleted post !</h1>";
         }
         else
         {
-            foreach($postsByCategory as $post)
+            $postsByCategory = $posts->getPostsByCategory($_GET['category']);
+            if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1)
             {
-                echo "<tr><td><a href=\"post.php?id=".$post['id']."\">".$post['title']."</a></td><td>".$post['date']."</td></tr>";
+                echo "<table>";
+                foreach($postsByCategory as $post)
+                {
+                    echo "<tr><td><a href=\"post.php?id=".$post['id']."\">".$post['title']."</a></td><td><a href=\"editPost.php?id=".$post['id']."\">edit</a></td><td><form action=\"\" method=\"post\"><input type=\"hidden\" name=\"id\" value=\"".$post['id']."\"><input type=\"submit\" name=\"delete\" value=\"delete\" onclick='return confirm(\"Are you sure you want to delete?\")'></form></td></tr>";
+                }
+                echo "</table>";
             }
-        }
-        echo "</table>";
+            else
+            {
+                foreach($postsByCategory as $post)
+                {
+                    echo "<div class=\"post\"><a href=\"post.php?id=".$post['id']."\">".$post['title']."</a><br/><div class=\"description\">".$post['descr']."</div><br/>".$post['date']."</div>";
+                }
+            }
+            }
     }
 include "includes/footer.php";
 ?>

@@ -16,9 +16,9 @@ class Posts
     {
         $this->db->callDbQuery("insert into posts (title, descr, user_id, category) values ('$title', '$descr', '$user_id', '$category')");
     }
-    public function editPost($id, $newDescr, $newTitle, $newCategory)
+    public function editPost($id, $newTitle, $newDescr, $newCategory)
     {
-        $this->db->callDbQuery("Update posts where id=$id set title=$newTitle, descr=$newDescr, category=$newCategory");
+        $this->db->callDbQuery("Update posts set title=\"$newTitle\", descr=\"$newDescr\", category=\"$newCategory\" where id=\"$id\"");
     }
     public function getPostById($id)
     {
@@ -29,5 +29,9 @@ class Posts
     {
         $categories = $this->db->select("select * from posts where category='$category'");
         return $categories;
+    }
+    public function removePost($id)
+    {
+        $this->db->callDbQuery("delete from posts where id=\"$id\"");
     }
 }

@@ -1,11 +1,10 @@
 <?php
-include_once 'includes/db/query.php';
 class Categories
 {
     private $db;
-    public function __construct()
+    public function __construct($db)
     {
-        $this->db = new Query();
+        $this->db = $db;
     }
     public function getAll()
     {

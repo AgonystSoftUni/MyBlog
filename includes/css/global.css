@@ -120,3 +120,29 @@ nav ul li a
 {
     width: 100%;
 }
+.post
+{
+    display: inline-block;
+    width: 40%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.post .description
+{
+    height: 50px;
+    overflow: hidden;
+}
+input[type=text], input[type=password], input[type=email]
+{
+    padding: 5px 5px;
+    border-radius: 3px;
+    width: 100%;
+}
+input[type=submit]
+{
+    padding: 5px 15px;
+}
+textarea {
+    height: 120px;
+    width: 100%;
+}
