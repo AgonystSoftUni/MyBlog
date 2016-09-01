@@ -4,12 +4,24 @@ include_once "core/posts/categories.php";
 $categories = new Categories($db);
     if(!isset($_GET['category']))
     {
-        echo "<div id=\"categories\"><ul>";
-            foreach($categories->getAll() as $category)
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']->privilegies == 1)
             {
-                echo "<li><a href=\"categories.php?category=".$category['category']."\">".$category['category'] . "</a></li>";
+            echo "<div id=\"categories\"><ul>";
+                foreach($categories->getAll() as $category)
+                {
+                    echo "<li><a href=\"categories.php?category=".$category['category']."\">".$category['category'] . "</a><br/><a href=\"editCategory.php?id=".$category['id']."\">edit category</a></li>";
+                }
+            echo "</ul></div>";
             }
-        echo "</ul></div>";
+            else
+            {
+            echo "<div id=\"categories\"><ul>";
+                foreach($categories->getAll() as $category)
+                {
+                    echo "<li><a href=\"categories.php?category=".$category['category']."\">".$category['category'] . "</a></li>";
+                }
+            echo "</ul></div>";
+            }
     }  
     else
     {

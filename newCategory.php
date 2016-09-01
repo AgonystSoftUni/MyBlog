@@ -4,7 +4,7 @@ include "core/posts/categories.php";
 $categories = new Categories($db);
 if(isset($_POST['create']))
 {
-    $categories->addNew($_POST['category']);
+    $categories->addCategory($_POST['category']);
     echo "<h1>Successfully created category!</h1>";
 } else {
     echo "<form method=\"post\" action=\"#\">

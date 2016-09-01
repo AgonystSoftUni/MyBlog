@@ -116,6 +116,10 @@ nav ul li a
     background-color: white;
     font-size: 19px;
 }
+#contentWrapper #categories ul li a:nth-child(2)
+{
+    text-decoration: underline;
+}
 #contentWrapper table
 {
     width: 100%;
